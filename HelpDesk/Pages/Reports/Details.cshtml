@@ -1,0 +1,149 @@
+﻿@page
+@model HelpDesk.Pages.Reports.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Note)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Note)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Report_AssetID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Report_AssetID.AssetID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Report.Report_EmployeeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Report.Report_EmployeeID)
+        </dd>
+    </dl>
+</div>
+
+   
+<div >
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div hidden class="form-group">
+            <label asp-for="Repair.Date" class="control-label"></label>
+            <input asp-for="Repair.Date" class="form-control" />
+            <span asp-validation-for="Repair.Date" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+
+            <input hidden asp-for="Repair.Note" class="form-control" value="-" />
+
+        </div>
+        <div class="form-group">
+
+
+            <input hidden asp-for="Repair.Type" class="form-control" value="Unknow?" />
+
+
+        </div>
+        <div class="form-group">
+
+            <input hidden asp-for="Repair.Status" class="form-control" value="On Fixing!" />
+
+        </div>
+        <div class="form-group">
+
+            <input hidden asp-for="Repair.ReportID" class="form-control" value=@Model.Report.ReportID />
+
+
+        </div>
+        <div class="form-group">
+
+            
+            <input hidden asp-for="Repair.Repair_EmployeeID" class="form-control" value=2 />
+
+        </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Report.ReportID" />
+        <div hidden class="form-group">
+            <label asp-for="Report.Title" class="control-label"></label>
+            <input asp-for="Report.Title" class="form-control" />
+            <span asp-validation-for="Report.Title" class="text-danger"></span>
+        </div>
+        <div hidden class="form-group">
+            <label asp-for="Report.Date" class="control-label"></label>
+            <input asp-for="Report.Date" class="form-control" />
+            <span asp-validation-for="Report.Date" class="text-danger"></span>
+        </div>
+        <div hidden class="form-group">
+            <label asp-for="Report.Note" class="control-label"></label>
+            <input asp-for="Report.Note" class="form-control" />
+            <span asp-validation-for="Report.Note" class="text-danger"></span>
+        </div>
+        <div hidden class="form-group">
+            <label asp-for="Report.Type" class="control-label"></label>
+            <select asp-for="Report.Type" class="form-control">
+                <option>Problem</option>
+                <option>Question</option>
+            </select>
+        </div>
+        <div class="form-group">
+            
+            <input hidden asp-for="Report.Status" class="form-control" value="In Process!" />
+
+        </div>
+        <div hidden class="form-group">
+            <label asp-for="Report.AssetID" class="control-label"></label>
+            <select asp-for="Report.AssetID" class="form-control" asp-items="ViewBag.AssetID"></select>
+            <span asp-validation-for="Report.AssetID" class="text-danger"></span>
+        </div>
+        <div hidden class="form-group">
+            <label asp-for="Report.Report_EmployeeID" class="control-label"></label>
+            <input asp-for="Report.Report_EmployeeID" class="form-control" />
+            <span asp-validation-for="Report.Report_EmployeeID" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Select" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+
+
+<div>
+    |
+    <a asp-page="./Index">Back to List</a>
+</div>

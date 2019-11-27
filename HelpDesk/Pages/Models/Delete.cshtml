@@ -1,0 +1,40 @@
+﻿@page
+@model HelpDesk.Pages.Models.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Model</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.ModelName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.ModelName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.Model_BrandID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.Model_BrandID.BrandID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.Model_CategoryID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.Model_CategoryID.CategoryID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Model.ModelID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

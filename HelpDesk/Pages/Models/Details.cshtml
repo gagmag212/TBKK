@@ -1,0 +1,37 @@
+﻿@page
+@model HelpDesk.Pages.Models.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Model</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.ModelName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.ModelName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.Model_BrandID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.Model_BrandID.BrandID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model.Model_CategoryID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.Model_CategoryID.CategoryID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Model.ModelID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

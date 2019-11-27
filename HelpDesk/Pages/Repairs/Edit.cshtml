@@ -1,0 +1,65 @@
+﻿@page
+@model HelpDesk.Pages.Repairs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Repair</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Repair.RepairID" />
+            <div class="form-group">
+                <label asp-for="Repair.Date" class="control-label"></label>
+                <input asp-for="Repair.Date" class="form-control" />
+                <span asp-validation-for="Repair.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.Note" class="control-label"></label>
+                <input asp-for="Repair.Note" class="form-control" />
+                <span asp-validation-for="Repair.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.Type" class="control-label"></label>
+               
+                <select asp-for="Repair.Type" class="form-control">
+                    <option>Hardware</option>
+                    <option>Software</option>
+                    <option>Human False</option>
+                </select>
+               
+            </div>
+            <div hidden class="form-group">
+                
+                <input asp-for="Repair.Status" class="form-control" value="On Fixing!"/>
+             
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.ReportID" class="control-label"></label>
+                <select asp-for="Repair.ReportID" class="form-control" asp-items="ViewBag.ReportID"></select>
+                <span asp-validation-for="Repair.ReportID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <input hidden asp-for="Repair.Repair_EmployeeID" class="form-control" value=2/>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

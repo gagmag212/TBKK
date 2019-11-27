@@ -1,0 +1,136 @@
+﻿@page
+@model HelpDesk.Pages.Assets.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Asset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.AssetName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.AssetName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.SerailNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.SerailNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.MACAddr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.MACAddr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.InstallDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.InstallDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.PurchaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.PurchaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.ExpireDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.ExpireDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.PONumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.PONumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Warranty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Warranty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Note)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Note)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Image)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_LocationID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_LocationID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_CompanyID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_CompanyID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_DepartmentID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_DepartmentID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_SupplierID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_SupplierID.SupplierID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_EmployeeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_EmployeeID.EmployeeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Asset.Asset_ModelID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Asset.Asset_ModelID.ModelID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Asset.AssetID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

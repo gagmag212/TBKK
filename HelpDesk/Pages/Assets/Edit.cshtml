@@ -1,0 +1,125 @@
+﻿@page
+@model HelpDesk.Pages.Assets.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Asset</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Asset.AssetID" />
+            <div class="form-group">
+                <label asp-for="Asset.AssetName" class="control-label"></label>
+                <input asp-for="Asset.AssetName" class="form-control" />
+                <span asp-validation-for="Asset.AssetName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.SerailNumber" class="control-label"></label>
+                <input asp-for="Asset.SerailNumber" class="form-control" />
+                <span asp-validation-for="Asset.SerailNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.MACAddr" class="control-label"></label>
+                <input asp-for="Asset.MACAddr" class="form-control" />
+                <span asp-validation-for="Asset.MACAddr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.InstallDate" class="control-label"></label>
+                <input asp-for="Asset.InstallDate" class="form-control" />
+                <span asp-validation-for="Asset.InstallDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.PurchaseDate" class="control-label"></label>
+                <input asp-for="Asset.PurchaseDate" class="form-control" />
+                <span asp-validation-for="Asset.PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.ExpireDate" class="control-label"></label>
+                <input asp-for="Asset.ExpireDate" class="form-control" />
+                <span asp-validation-for="Asset.ExpireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.PONumber" class="control-label"></label>
+                <input asp-for="Asset.PONumber" class="form-control" />
+                <span asp-validation-for="Asset.PONumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Price" class="control-label"></label>
+                <input asp-for="Asset.Price" class="form-control" />
+                <span asp-validation-for="Asset.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Warranty" class="control-label"></label>
+                <input asp-for="Asset.Warranty" class="form-control" />
+                <span asp-validation-for="Asset.Warranty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Type" class="control-label"></label>
+                <input asp-for="Asset.Type" class="form-control" />
+                <span asp-validation-for="Asset.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Note" class="control-label"></label>
+                <input asp-for="Asset.Note" class="form-control" />
+                <span asp-validation-for="Asset.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Status" class="control-label"></label>
+                <input asp-for="Asset.Status" class="form-control" />
+                <span asp-validation-for="Asset.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Image" class="control-label"></label>
+                <input asp-for="Asset.Image" class="form-control" />
+                <span asp-validation-for="Asset.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Asset_LocationID" class="control-label"></label>
+                <input asp-for="Asset.Asset_LocationID" class="form-control" />
+                <span asp-validation-for="Asset.Asset_LocationID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Asset_CompanyID" class="control-label"></label>
+                <input asp-for="Asset.Asset_CompanyID" class="form-control" />
+                <span asp-validation-for="Asset.Asset_CompanyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.Asset_DepartmentID" class="control-label"></label>
+                <input asp-for="Asset.Asset_DepartmentID" class="form-control" />
+                <span asp-validation-for="Asset.Asset_DepartmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.SupplierID" class="control-label"></label>
+                <select asp-for="Asset.SupplierID" class="form-control" asp-items="ViewBag.SupplierID"></select>
+                <span asp-validation-for="Asset.SupplierID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.EmployeeID" class="control-label"></label>
+                <select asp-for="Asset.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                <span asp-validation-for="Asset.EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Asset.ModelID" class="control-label"></label>
+                <select asp-for="Asset.ModelID" class="form-control" asp-items="ViewBag.ModelID"></select>
+                <span asp-validation-for="Asset.ModelID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

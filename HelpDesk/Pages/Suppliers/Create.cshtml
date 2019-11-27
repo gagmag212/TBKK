@@ -1,0 +1,64 @@
+﻿@page
+@model HelpDesk.Pages.Suppliers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Supplier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Supplier.SupplierName" class="control-label"></label>
+                <input asp-for="Supplier.SupplierName" class="form-control" />
+                <span asp-validation-for="Supplier.SupplierName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.ContactName" class="control-label"></label>
+                <input asp-for="Supplier.ContactName" class="form-control" />
+                <span asp-validation-for="Supplier.ContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Address" class="control-label"></label>
+                <input asp-for="Supplier.Address" class="form-control" />
+                <span asp-validation-for="Supplier.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Email" class="control-label"></label>
+                <input asp-for="Supplier.Email" class="form-control" />
+                <span asp-validation-for="Supplier.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.URL" class="control-label"></label>
+                <input asp-for="Supplier.URL" class="form-control" />
+                <span asp-validation-for="Supplier.URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Note" class="control-label"></label>
+                <input asp-for="Supplier.Note" class="form-control" />
+                <span asp-validation-for="Supplier.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier.Image" class="control-label"></label>
+                <input asp-for="Supplier.Image" class="form-control" />
+                <span asp-validation-for="Supplier.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

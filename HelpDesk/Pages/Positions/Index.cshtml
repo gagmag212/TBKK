@@ -1,0 +1,36 @@
+﻿@page
+@model HelpDesk.Pages.Positions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Position[0].PositionName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Position) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PositionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PositionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PositionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

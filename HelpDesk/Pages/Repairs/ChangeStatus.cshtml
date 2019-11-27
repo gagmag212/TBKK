@@ -1,0 +1,105 @@
+﻿@page
+@model HelpDesk.Pages.Repairs.ChangeStatusModel
+
+@{
+    ViewData["Title"] = "ChangeStatus";
+}
+
+<h2>ChangeStatus</h2>
+
+<h4>Repair</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Repair.RepairID" />
+            <div hidden class="form-group">
+                <label asp-for="Repair.Date" class="control-label"></label>
+                <input asp-for="Repair.Date" class="form-control" />
+                <span asp-validation-for="Repair.Date" class="text-danger"></span>
+            </div>
+
+            <div hidden class="form-group">
+                <label asp-for="Repair.Type" class="control-label"></label>
+                <input asp-for="Repair.Type" class="form-control" />
+                <span asp-validation-for="Repair.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.Status" class="control-label"></label>
+                <select asp-for="Repair.Status" class="form-control">
+                    <option>Can't fix</option>
+                    <option>Can't fix</option>
+                </select>
+               
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="Repair.Note" class="control-label"></label>
+                <input asp-for="Repair.Note" class="form-control" />
+                <span asp-validation-for="Repair.Note" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Repair.ReportID" class="control-label"></label>
+                <select asp-for="Repair.ReportID" class="form-control" asp-items="ViewBag.ReportID"></select>
+                <span asp-validation-for="Repair.ReportID" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Repair.Repair_EmployeeID" class="control-label"></label>
+                <input asp-for="Repair.Repair_EmployeeID" class="form-control" />
+                <span asp-validation-for="Repair.Repair_EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Report.ReportID" />
+            <div hidden class="form-group">
+                <label asp-for="Report.Title" class="control-label"></label>
+                <input asp-for="Report.Title" class="form-control" />
+                <span asp-validation-for="Report.Title" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Report.Date" class="control-label"></label>
+                <input asp-for="Report.Date" class="form-control" />
+                <span asp-validation-for="Report.Date" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Report.Note" class="control-label"></label>
+                <input asp-for="Report.Note" class="form-control" />
+                <span asp-validation-for="Report.Note" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Report.Type" class="control-label"></label>
+                <select asp-for="Report.Type" class="form-control">
+                    <option>Problem</option>
+                    <option>Question</option>
+                </select>
+            </div>
+            <div class="form-group">
+
+                <input hidden asp-for="Report.Status" class="form-control" value="Resolved!" />
+
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Report.AssetID" class="control-label"></label>
+                <select asp-for="Report.AssetID" class="form-control" asp-items="ViewBag.AssetID"></select>
+                <span asp-validation-for="Report.AssetID" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Report.Report_EmployeeID" class="control-label"></label>
+                <input asp-for="Report.Report_EmployeeID" class="form-control" />
+                <span asp-validation-for="Report.Report_EmployeeID" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

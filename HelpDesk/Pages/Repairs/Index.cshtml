@@ -1,0 +1,66 @@
+﻿@page
+@model HelpDesk.Pages.Repairs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Repair_ReportID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Repair_EmployeeID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Repair) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Repair_ReportID.ReportID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Repair_EmployeeID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RepairID">Manage</a> |
+                <a asp-page="./Details" asp-route-id="@item.RepairID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RepairID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

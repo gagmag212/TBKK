@@ -1,0 +1,141 @@
+﻿@page
+@model HelpDesk.Pages.Repairs.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <h4>Repair</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Note)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Note)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Repair_ReportID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Repair_ReportID.ReportID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Repair.Repair_EmployeeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Repair.Repair_EmployeeID)
+        </dd>
+    </dl>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Repair.RepairID" />
+        <div class="form-group">
+            <label asp-for="Repair.Date" class="control-label"></label>
+            <input asp-for="Repair.Date" class="form-control" />
+            <span asp-validation-for="Repair.Date" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Repair.Note" class="control-label"></label>
+            <input asp-for="Repair.Note" class="form-control" />
+            <span asp-validation-for="Repair.Note" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Repair.Type" class="control-label"></label>
+            <input asp-for="Repair.Type" class="form-control" />
+            <span asp-validation-for="Repair.Type" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+
+            <input asp-for="Repair.Status" class="form-control" value="Can't fix!" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Repair.ReportID" class="control-label"></label>
+            <select asp-for="Repair.ReportID" class="form-control" asp-items="ViewBag.ReportID"></select>
+            <span asp-validation-for="Repair.ReportID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Repair.Repair_EmployeeID" class="control-label"></label>
+            <input asp-for="Repair.Repair_EmployeeID" class="form-control" />
+            <span asp-validation-for="Repair.Repair_EmployeeID" class="text-danger"></span>
+        </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Report.ReportID" />
+        <div class="form-group">
+            <label asp-for="Report.Title" class="control-label"></label>
+            <input asp-for="Report.Title" class="form-control" />
+            <span asp-validation-for="Report.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Report.Date" class="control-label"></label>
+            <input asp-for="Report.Date" class="form-control" />
+            <span asp-validation-for="Report.Date" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Report.Note" class="control-label"></label>
+            <input asp-for="Report.Note" class="form-control" />
+            <span asp-validation-for="Report.Note" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Report.Type" class="control-label"></label>
+            <select asp-for="Report.Type" class="form-control">
+                <option>Problem</option>
+                <option>Question</option>
+            </select>
+        </div>
+        <div class="form-group">
+
+            <input asp-for="Report.Status" class="form-control" value="Resolved!" />
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Report.AssetID" class="control-label"></label>
+            <select asp-for="Report.AssetID" class="form-control" asp-items="ViewBag.AssetID"></select>
+            <span asp-validation-for="Report.AssetID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+
+            <input hidden asp-for="Report.Report_EmployeeID" class="form-control" value=2 />
+
+        </div>
+
+
+
+
+
+        <input type="hidden" asp-for="Repair.RepairID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./ChangeStatus" asp-route-id=" @Model.Repair.RepairID">Change Status</a> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+    <button>
+    </button>
+
+    
+
+
+</div>

@@ -1,0 +1,144 @@
+﻿@page
+@model HelpDesk.Pages.Assets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].SerailNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].MACAddr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].InstallDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].ExpireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].PONumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Warranty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_LocationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_DepartmentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_SupplierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asset[0].Asset_ModelID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Asset) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerailNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MACAddr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstallDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PONumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Warranty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_LocationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_CompanyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_DepartmentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_SupplierID.SupplierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_EmployeeID.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_ModelID.ModelID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AssetID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AssetID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AssetID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

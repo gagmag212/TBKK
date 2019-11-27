@@ -1,0 +1,121 @@
+﻿@page
+@model HelpDesk.Pages.Employees.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Birthday)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Birthday)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Line)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Line)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Call)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Call)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Addr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Addr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Image)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Employee_CompanyID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Employee_CompanyID.CompanyID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Employee_DepartmentID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Employee_DepartmentID.DepartmentID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Employee_LocationID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Employee_LocationID.LocationID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Employee_EmployeeTypeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Employee_EmployeeTypeID.EmployeeTypeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Employee_PositionID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Employee_PositionID.PositionID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Employee.EmployeeID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
