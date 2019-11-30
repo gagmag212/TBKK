@@ -13,6 +13,8 @@ namespace HelpDesk.Pages.Reports
     {
         private readonly HelpDesk.Models.HelpDeskContext _context;
 
+        [BindProperty]
+        public Asset Asset { get; set; }
         public CreateModel(HelpDesk.Models.HelpDeskContext context)
         {
             _context = context;
@@ -20,7 +22,7 @@ namespace HelpDesk.Pages.Reports
 
         public IActionResult OnGet()
         {
-        ViewData["AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetID");
+        ViewData["AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetName");
             return Page();
         }
 
@@ -35,7 +37,9 @@ namespace HelpDesk.Pages.Reports
             {
                 return Page();
             }
-
+           
+            DateTime date = DateTime.Now;
+            Report.Date = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second); 
             _context.Report.Add(Report);
             await _context.SaveChangesAsync();
 

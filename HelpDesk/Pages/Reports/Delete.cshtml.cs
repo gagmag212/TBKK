@@ -17,7 +17,8 @@ namespace HelpDesk.Pages.Reports
         {
             _context = context;
         }
-
+        [BindProperty]
+        public IList<Employee> Employee { get; set; }
         [BindProperty]
         public Report Report { get; set; }
 
@@ -28,6 +29,7 @@ namespace HelpDesk.Pages.Reports
                 return NotFound();
             }
 
+            Employee = await _context.Employee.ToListAsync();
             Report = await _context.Report
                 .Include(r => r.Report_AssetID).FirstOrDefaultAsync(m => m.ReportID == id);
 

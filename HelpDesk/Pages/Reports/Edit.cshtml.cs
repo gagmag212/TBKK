@@ -18,7 +18,8 @@ namespace HelpDesk.Pages.Reports
         {
             _context = context;
         }
-
+        [BindProperty]
+        public Asset Asset { get; set; }
         [BindProperty]
         public Report Report { get; set; }
 
@@ -32,11 +33,13 @@ namespace HelpDesk.Pages.Reports
             Report = await _context.Report
                 .Include(r => r.Report_AssetID).FirstOrDefaultAsync(m => m.ReportID == id);
 
+            
+
             if (Report == null)
             {
                 return NotFound();
             }
-           ViewData["AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetID");
+           ViewData["AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetName");
             return Page();
         }
 

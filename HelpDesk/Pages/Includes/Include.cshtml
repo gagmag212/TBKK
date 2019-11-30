@@ -1,11 +1,11 @@
 ﻿@page
-@model HelpDesk.Pages.Reports.IndexModel
+@model HelpDesk.Pages.Includes.IncludeModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Include";
 }
 
-<h2>Report</h2>
+<h2>Include</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,26 +14,24 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Report[0].Title)
+                @Html.DisplayNameFor(model => model.Report[0].ReportID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Report[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Report[0].Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Report[0].Type)
+                @Html.DisplayNameFor(model => model.Repair[0].RepairID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Report[0].Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Report[0].Report_AssetID.AssetName)
+                @Html.DisplayNameFor(model => model.Repair[0].Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].EmployeeName)
+                @Html.DisplayNameFor(model => model.Report[0].Date)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Repair[0].Date)
+            </th>
+          
             <th></th>
         </tr>
     </thead>
@@ -41,10 +39,11 @@
 @foreach (var item in Model.Report) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.ReportID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Model.Repair[0].RepairID
+               
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Note)
@@ -56,11 +55,10 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Report_AssetID.AssetName)
+                @Html.DisplayFor(modelItem => item.Report_AssetID.AssetID)
             </td>
             <td>
-                @Html.DisplayFor(model => model.Employee[item.Report_EmployeeID - 1].FirstName)
-                @Html.DisplayFor(model => model.Employee[item.Report_EmployeeID - 1].LastName)
+                @Html.DisplayFor(modelItem => item.Report_EmployeeID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ReportID">Edit</a> |
@@ -69,5 +67,6 @@
             </td>
         </tr>
 }
+        
     </tbody>
 </table>

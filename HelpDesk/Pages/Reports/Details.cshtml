@@ -43,23 +43,28 @@
             @Html.DisplayFor(model => model.Report.Status)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Report.Report_AssetID)
+            @Html.DisplayNameFor(model => model.Report.Report_AssetID.AssetName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Report.Report_AssetID.AssetID)
+            @Html.DisplayFor(model => model.Report.Report_AssetID.AssetName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Report.Report_EmployeeID)
+            @Html.DisplayFor(model => model.Employee[0].EmployeeName)
+          
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Report.Report_EmployeeID)
+            @Html.DisplayFor(model => model.Employee[@Model.Report.Report_EmployeeID - 1].FirstName)
+            @Html.DisplayFor(model => model.Employee[@Model.Report.Report_EmployeeID - 1].LastName)
         </dd>
+          
+           
     </dl>
 </div>
 
    
 <div >
     <form method="post">
+        <!--     Repair ( Create )           -->
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div hidden class="form-group">
             <label asp-for="Repair.Date" class="control-label"></label>
@@ -91,10 +96,11 @@
         </div>
         <div class="form-group">
 
-            
+
             <input hidden asp-for="Repair.Repair_EmployeeID" class="form-control" value=2 />
 
         </div>
+        <!--     Report ( Status -> In Process! )           -->
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Report.ReportID" />
         <div hidden class="form-group">
@@ -120,7 +126,7 @@
             </select>
         </div>
         <div class="form-group">
-            
+
             <input hidden asp-for="Report.Status" class="form-control" value="In Process!" />
 
         </div>

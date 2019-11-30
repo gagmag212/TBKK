@@ -34,46 +34,33 @@ namespace HelpDesk.Pages.Repairs
             Repair = await _context.Repair
                 .Include(r => r.Repair_ReportID).FirstOrDefaultAsync(m => m.RepairID == id);
 
+            Report = await _context.Report
+              .Include(r => r.Report_AssetID).FirstOrDefaultAsync(m => m.ReportID == Repair.ReportID);
+
+
             if (Repair == null)
             {
                 return NotFound();
             }
            ViewData["ReportID"] = new SelectList(_context.Report, "ReportID", "ReportID");
+            ViewData["AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetID");
+           
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+           
 
             _context.Attach(Repair).State = EntityState.Modified;
 
             _context.Attach(Report).State = EntityState.Modified;
-            try
-            {
+          
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RepairExists(Repair.RepairID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+          
             return RedirectToPage("./Index");
         }
 
-        private bool RepairExists(int id)
-        {
-            return _context.Repair.Any(e => e.RepairID == id);
-        }
+      
     }
 }

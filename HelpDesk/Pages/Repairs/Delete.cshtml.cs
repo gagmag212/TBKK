@@ -22,6 +22,8 @@ namespace HelpDesk.Pages.Repairs
             _context = context;
         }
         [BindProperty]
+        public IList<Employee> Employee { get; set; }
+        [BindProperty]
         public Report Report { get; set; }
 
         [BindProperty]
